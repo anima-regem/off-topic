@@ -1,6 +1,6 @@
 ---
 title: "Gumbus"
-role: "Gumbus the great"
+bio: "Gumbus the great"
 email: "hey@rohith.net"
 social:
   github: "rv178"

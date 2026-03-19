@@ -11,8 +11,8 @@
     <div class="profile-info">
       <h1>{{ .Title }}</h1>
 
-      {{ with .Params.role }}
-        <p class="profile-role">{{ . }}</p>
+      {{ with .Params.bio }}
+        <p class="profile-bio">{{ . }}</p>
       {{ end }}
 
       {{ with .Params.email }}

@@ -1,6 +1,6 @@
 ---
 title: "Rohith"
-role: "Linux enthusiast"
+bio: "Linux enthusiast"
 email: "hey@rohith.net"
 social:
   github: "rv178"

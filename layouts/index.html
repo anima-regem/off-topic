@@ -24,8 +24,8 @@
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         </h2>
 
-        {{ with .Params.role }}
-        <p class="member-role">{{ . }}</p>
+        {{ with .Params.bio }}
+        <p class="member-bio">{{ . }}</p>
         {{ end }}
     </article>
     {{ end }}
