@@ -1,0 +1,48 @@
+{{ define "main" }}
+<article class="member-profile">
+  <header class="profile-header">
+    {{ $avatar := .Resources.GetMatch "avatar.*" }}
+    {{ if $avatar }}
+      <img src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" class="profile-avatar">
+    {{ else }}
+      <img src="/images/default-avatar.svg" alt="{{ .Title }}" class="profile-avatar">
+    {{ end }}
+
+    <div class="profile-info">
+      <h1>{{ .Title }}</h1>
+
+      {{ with .Params.role }}
+        <p class="profile-role">{{ . }}</p>
+      {{ end }}
+
+      {{ with .Params.email }}
+        <p class="profile-email">
+          <a href="mailto:{{ . }}">{{ partial "icon-email.html" . }}{{ . }}</a>
+        </p>
+      {{ end }}
+
+      {{ with .Params.social }}
+        <div class="social-links">
+          {{ with .github }}
+            <a href="https://github.com/{{ . }}" target="_blank" rel="noopener">{{ partial "icon-github.html" . }}</a>
+          {{ end }}
+          {{ with .x }}
+            <a href="https://x.com/{{ . }}" target="_blank" rel="noopener">{{ partial "icon-x.html" . }}</a>
+          {{ end }}
+          {{ with .linkedin }}
+            <a href="https://linkedin.com/{{ . }}" target="_blank" rel="noopener">{{ partial "icon-linkedin.html" . }}</a>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </header>
+
+  <div class="profile-bio">
+    {{ .Content }}
+  </div>
+
+  <footer class="profile-footer">
+    <a href="{{ "/" | relURL }}">&larr; Back</a>
+  </footer>
+</article>
+{{ end }}

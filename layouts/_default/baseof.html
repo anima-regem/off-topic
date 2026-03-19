@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    {{- if .IsHome -}}
+      {{ .Site.Title }}
+    {{- else -}}
+      {{ .Title }} &mdash; {{ .Site.Title }}
+    {{- end -}}
+  </title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+  {{- $css := resources.Get "css/root.css" -}}
+  {{- if $css -}}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+  {{- end }}
+</head>
+<body>
+  <main class="site-main">
+    {{- block "main" . }}{{- end }}
+  </main>
+</body>
+</html>

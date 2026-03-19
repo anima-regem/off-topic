@@ -1,0 +1,33 @@
+{{ define "main" }} {{ with .Title }}
+<h1 class="directory-title">{{ . }}</h1>
+{{ end }} {{ with .Content }}
+<div class="directory-intro">{{ . }}</div>
+{{ end }}
+<div class="members-grid">
+    {{ range .Pages.ByTitle }}
+    <article class="member-card">
+        {{ $avatar := .Resources.GetMatch "avatar.*" }} {{ if $avatar }}
+        <img
+            src="{{ $avatar.RelPermalink }}"
+            alt="{{ .Title }}"
+            class="member-avatar"
+        />
+        {{ else }}
+        <img
+            src="/images/default-avatar.svg"
+            alt="{{ .Title }}"
+            class="member-avatar"
+        />
+        {{ end }}
+
+        <h2 class="member-name">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+
+        {{ with .Params.role }}
+        <p class="member-role">{{ . }}</p>
+        {{ end }}
+    </article>
+    {{ end }}
+</div>
+{{ end }}

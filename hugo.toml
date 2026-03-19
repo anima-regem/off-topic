@@ -1,0 +1,9 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Off topic'
+
+[params]
+  defaultAvatar = "/images/default-avatar.png"
+
+[markup.goldmark.renderer]
+  unsafe = false  # Keep false for security with user-submitted content
